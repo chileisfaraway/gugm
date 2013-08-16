@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html> 
+<head> 
+  <style>
+  @import url(css/reset.css);
+  b {
+    font-weight:bold;
+  }
+  
+  #map {
+    font-family:sans-serif!important;
+    font-size:13px;
+    width:100%;
+    height:100%;
+    position:absolute;
+  }
+  </style>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" /> 
+  <script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
+</head> 
+<body>
+  <div id="map"></div>
+
+  <script type="text/javascript">
+    var locations = [
+      ['<b>Norwich</b></br>5K Timed Run at Eaton Park', 52.624519,1.296387, 1],
+      ['<b>Colchester</b></br>15K Timed Run at Central Park', 51.899747,0.902252, 2],
+      ['<b>Chelmsford</b></br>Cycle into London Every Day, Timed Ride.', 51.734205,0.466919, 3],
+      ['<b>Greater London</b></br>100 Mile Charity Cycle Ride', 51.509971,-0.123596, 4],
+      ['<b>Cardiff</b></br>Park Run (20m or Faster) By invatiation only', 51.590723,-3.427734, 5],
+      ['<b>Weymouth</b></br>Swim across the channel (Registered Only)', 50.606284,-2.476044, 6],
+      ['<b>Leeds</b></br>City Runner, 5K around the city; Charity fun run', 53.800651,-1.494141, 7],
+      ['<b>Cambridge</b></br>Addenbrooks Hospital run, run around the edge of the hospital 5 times. 5K.', 52.200874,0.12085, 8]
+    ];
+
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 5,
+      center: new google.maps.LatLng(54.559322, -4.174804),
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+
+    var infowindow = new google.maps.InfoWindow();
+
+    var marker, i;
+
+    for (i = 0; i < locations.length; i++) {  
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+        map: map
+      });
+
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+          infowindow.setContent(locations[i][0]);
+          infowindow.open(map, marker);
+        }
+      })(marker, i));
+    }
+  </script>
+</body>
+</html>
