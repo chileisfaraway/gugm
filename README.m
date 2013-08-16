@@ -1,6 +1,6 @@
 Hello,
 
-<b>Get up Get Moving Project.</b>
+Get up Get Moving Project.
 GCSE I.T.
 
 I've attempted to tidy the code. Most of the pages use ?php? to import the
