@@ -1,0 +1,47 @@
+body {
+	background-image:url('bg.jpg');
+}
+
+#heart	{
+	background-image:url('heart-logo.png');
+	width:70px;height:70px;
+	background-size:70px,70px;
+	position:absolute;
+	bottom:15px;
+	right:15px;
+}
+
+#boxe {
+	width:300px;
+	position:absolute;
+		top:50%;
+		left:50%;
+			margin-top:-210px;
+			margin-left:-158px;
+	border:8px solid white;
+	background:#EEE;
+	box-shadow: 0px 0px 4px #AAAAAA;
+	height:382px;
+}
+
+#block	{
+	width:100px;
+	margin:auto;
+	padding-bottom:25px;
+}
+
+#cont {
+	width:240px;
+	padding-bottom:10px;
+	padding-top:26px;
+	margin:auto;
+}
+
+p.title	{
+	font-size:20px;
+	text-align:center;
+}
+
+p.para {
+	margin-top:20px;
+}

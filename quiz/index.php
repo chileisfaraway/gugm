@@ -47,10 +47,17 @@ if ($status=="success") {
     #menu {
     	position:absolute;
     	left:6px;
-
     }
     #menu a {
     	margin:6px 0px 0px 0px;
+    	left:0;
+    }
+    #menuopt {
+    	position:absolute;
+    	right:6px;
+    }
+    #menuopt a {
+		margin:6px 0px 0px 0px;
     	right:0;
     }
     span {
@@ -74,6 +81,11 @@ if ($status=="success") {
 		<span><a href="../podcast.php" class="btn btn-small btn-inverse"><i class="icon-headphones icon-white icon-writing"></i> Podcast</a></span>		
 		<span><a href="../model.php" class="btn btn-small btn-inverse"><i class="icon-th-list icon-white icon-writing"></i> Model</a></span>		
 		<span><a href="../events.php" class="btn btn-small btn-inverse"><i class="icon-map-marker icon-white icon-writing"></i> Events</a></span>		
+	</div>
+
+	<div id="menuopt">
+		<span><a href="full.php" class="btn btn-inverse"><i class="icon-forward icon-white icon-writing"></i> Play Full Game</a></span>
+		<span><a href="download.php" class="btn btn-inverse"><i class="icon-download icon-white icon-writing"></i> Downloadable</a></span>
 	</div>
 
 	<a href="index.php"><section id="refresh"></section></a>

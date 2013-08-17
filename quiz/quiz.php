@@ -28,7 +28,7 @@
 </head>
 
 <body>
-	<a href="index.php"><img src="css/house.png" width="35" height="35" style="margin-top:2px;margin-left:15px;position:absolute;" /></a>
+	<a href="index.php"><section id="home"></section></a>
 	<header>
 		<p>Get Up Get Moving Quiz!</p>
 	</header>

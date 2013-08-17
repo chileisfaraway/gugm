@@ -7,7 +7,7 @@ $nameArray = explode(' ',trim($firstName));
 $nameHandle = $nameArray[0];
 
 setcookie('n', $nameHandle, time()+5000);
-setcookie('p', 1, time()+120);
+setcookie('p', 1, time()+5000);
 
 if($uScore < 7)	{
 setcookie('s', $uScore, time()+5000);
@@ -46,11 +46,5 @@ $toWrite = implode(",", $nArr) . "::" . implode(",", $sArr);
 
 file_put_contents("scores.txt", $toWrite);
 
-$type = $_GET['device'];
-if ($type=="mobile") {
-	header("Location: mobile/index.php");
-}
-else {
-	header("Location: index.php?status=".$status);
-}
+header("Location: leaderboard.php?status=".$status);
 ?>

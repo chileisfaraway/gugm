@@ -1,9 +1,12 @@
 <?php
+$box = 194;
 $status = $_GET['type'];
 if ($status=="keynote") {
 	$download = "<p class='late'>DOWNLOAD THE QUIZ</p><a href='download/Healthy_Quiz.key'><button disabled='disabled' style='margin-top:23px' class='btn btn-large btn-block disabled' type='button'>Download</button></a>";
+	$box = 174;
 } else if ($status=="powerpoint") {
 	$download = "<p class='late'>DOWNLOAD THE QUIZ</p><a href='download/Healthy_Quiz.ppsx'><button style='margin-top:23px' class='btn btn-large btn-primary btn-block' type='button'>Download</button></a>";
+	$box = 174;
 } else {
 	$download = "<p class='late'>DOWNLOAD THE QUIZ, SELECT FORMAT</p>
 				<a href='download.php?type=powerpoint'><img class='typ' src='css/ppt.png' width='57' height='57'></a>
@@ -21,7 +24,7 @@ if ($status=="keynote") {
     <link href='./css/bootstrap.min.css' rel='stylesheet' type='text/css'>
     <style type="text/css">
     #boxe	{
-    	height:174px;
+    	height:<? echo $box; ?>px;
     	margin-top:-105px;
     }
     a {text-decoration:none!important;}

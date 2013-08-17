@@ -38,7 +38,7 @@ if ($status=="success") {
     </script>
 </head>
 <body>
-	<a href="index.php"><img src="css/house.png" width="35" height="35" style="margin-top:10px;margin-left:15px;" /></a>
+	<a href="index.php"><section id="home"></section></a>
 	<?php echo $highscores; ?>
 	<section id="heart"></section>
 	<div id="boxe">

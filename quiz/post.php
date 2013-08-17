@@ -5,7 +5,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Get Up Get Moving Quiz</title>
     <link href='./css/font/font.css' rel='stylesheet' type='text/css'>
     <link href='./css/universal.css' rel='stylesheet' type='text/css'>
     <link href='./css/result_style.css' rel='stylesheet' type='text/css'>
@@ -19,6 +18,7 @@
 </head>
 
 <body>
+    <a href="index.php"><section id="home"></section></a>
     <section id="heart"></section>
 	<div id="boxe" style="text-align:center">
         <div id="cont">
@@ -29,7 +29,7 @@
                     <button type="submit" name="btn" value="<? echo("$score") ?>" style='margin-top:2px' class='btn btn-primary' />
                 		Submit
            			</button>
-                    <button onClick="parent.location='index.php'" style='margin-top:2px' class='btn btn-primary' />
+                    <button onClick="parent.location='leaderboard.php'" style='margin-top:2px' class='btn btn-primary' />
                         Skip
                     </button>
                 </form>

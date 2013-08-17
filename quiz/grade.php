@@ -1,32 +1,6 @@
-<?php
-$iphone = strpos($_SERVER['HTTP_USER_AGENT'],"iPhone");
-$android = strpos($_SERVER['HTTP_USER_AGENT'],"Android");
-$palmpre = strpos($_SERVER['HTTP_USER_AGENT'],"webOS");
-$berry = strpos($_SERVER['HTTP_USER_AGENT'],"BlackBerry");
-$ipod = strpos($_SERVER['HTTP_USER_AGENT'],"iPod");
-
-if ($iphone || $android || $palmpre || $ipod || $berry == true) 
-{ 
-   echo "<script>window.location='http://quiz.benholloway.co.uk/submit.html'</script>";
-}
-
-$score = $_GET["score"];
-$played = $_COOKIE["p"];
-$name = $_COOKIE["n"];
-$namelength = strlen($name);
-
-if(empty($played)){
-    $height = 232;
-} else {
-    $height = 250;
-}
-
-$truncated = substr($name, 0, 8) . '...';
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Get Up Get Moving Quiz</title>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <link href='./css/font/font.css' rel='stylesheet' type='text/css'>
     <link href='./css/universal.css' rel='stylesheet' type='text/css'>
@@ -39,30 +13,45 @@ $truncated = substr($name, 0, 8) . '...';
 </head>
 
 <body>
+    <a href="index.php"><section id="home"></section></a>
     <section id="heart"></section>
-	<div id="boxe" style="text-align:center;height:<? echo $height; ?>px;">
+	<div id="boxe" style="text-align:center">
         <div id="cont">
         <p class="title">Get Up Get Moving Quiz!</p>
 		<h1>Results</h1>
-    <? if(empty($played)){ ?>    
+		
+        <?php
+            
+            $answer1 = $_POST['question-1-answers'];
+            $answer2 = $_POST['question-2-answers'];
+            $answer3 = $_POST['question-3-answers'];
+            $answer4 = $_POST['question-4-answers'];
+            $answer5 = $_POST['question-5-answers'];
+            $answer6 = $_POST['question-6-answers'];
+            $answer7 = $_POST['question-7-answers'];
+        
+            $totalCorrect = 0;
+            
+            if ($answer1 == "A") { $totalCorrect++; }
+            if ($answer2 == "D") { $totalCorrect++; }
+            if ($answer3 == "C") { $totalCorrect++; }
+            if ($answer4 == "B") { $totalCorrect++; }
+            if ($answer5 == "A") { $totalCorrect++; }
+            if ($answer6 == "D") { $totalCorrect++; }
+            if ($answer7 == "B") { $totalCorrect++; }
+        ?>
+        
     <form action="post.php" method="POST" id="results">
-        <button <? if ($score > -1 && $score < 8){}else{echo("disabled='disabled'");} ?> type="submit" name="btn" value="<? echo("$score") ?>" style='margin-top:26px;' class='btn btn-large btn-block 
-                <? 
-                if ($score > -1 && $score < 3){echo("btn-danger");}
-                if ($score > 2 && $score < 6){echo("btn-warning");}
-                if ($score > 5 && $score < 8){echo("btn-success");} 
-                if ($score < 0 || $score > 7){echo("btn-inverse");}
-                ?>' />
-            <? if($score > -1 && $score < 8){echo("$score");}else{echo("Cheat");} ?> <? if($score > -1 && $score < 8){echo("/ 7 Correct");}else{}?>
+        <button type="submit" name="btn" value="<? echo("$totalCorrect") ?>" style='margin-top:26px;' class='btn btn-large btn-block 
+                <? if ($totalCorrect > -1 && $totalCorrect < 4){echo("btn-danger");}
+                if ($totalCorrect > 3 && $totalCorrect < 6){echo("btn-warning");}
+                if ($totalCorrect > 5){echo("btn-success");} ?>' />
+            <? echo("$totalCorrect") ?> / 7 Correct
         </button>
     </form>
         <span class='st_facebook_hcount' displayText='Facebook'></span>
         <span class='st_twitter_hcount' displayText='Tweet'></span>
 	</div>
-    <? } else {  ?>
-    <button disabled="disabled" style='margin-top:26px;' class="btn btn-large btn-block btn-inverse">Sorry <? if($namelength > 7){echo $truncated;} else {echo $name;} ?></button>
-    </br><p>You've already submitted a score in the last 2 minutes. Please wait.</p>
-    <? } ?>
 </div>
 
 </body>
