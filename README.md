@@ -1,10 +1,10 @@
 Hello,
 
-Get up Get Moving Project.
-GCSE I.T.
+<b>Get up Get Moving Project.
+GCSE I.T.</b>
 
 I've attempted to tidy the code. Most of the pages use ?php? to import the
-header and the footer file which are in <html> files. There is some javascript
+header and the footer file which are in !html! files. There is some javascript
 and some jQuery for animations but any processing is done in ?php?
 
 The quiz section is largely custom made and all of the processsing is done
